@@ -47,15 +47,17 @@ const currentYear = new Date().getFullYear();
 		<div class="footer-social">
 			<!-- <h4>Seguinos</h4> -->
 			<div class="social-icons">
-				<!-- <a href="#" aria-label="Facebook"
+				<a
+					href="https://www.facebook.com/profile.php?id=100077093704692"
+					aria-label="Facebook"
 					><img
 						class="footer-icon"
 						src="/images/icons/facebook.svg"
 						alt="facebook"
 					/></a
-				> -->
+				>
 				<a
-					href="https://www.instagram.com/clapo_chillar?igshid=YmMyMTA2M2Y%3D"
+					href="https://www.instagram.com/asovesauce/"
 					aria-label="Instagram"
 					><img
 						class="footer-icon"
@@ -63,9 +65,8 @@ const currentYear = new Date().getFullYear();
 						alt="instagram"
 					/></a
 				>
-				<a
-					href="https://api.whatsapp.com/send?phone=https://wa.me/54228115491794"
-					aria-label="Whatsapp"
+				<!-- href="https://api.whatsapp.com/send?phone=https://wa.me/54228115491794" -->
+				<a href="https://wa.me/543774415320" aria-label="Whatsapp"
 					><img
 						class="footer-icon"
 						src="/images/logowpp.webp"
@@ -80,8 +81,8 @@ const currentYear = new Date().getFullYear();
 	</div>
 	<div class="footer-bottom">
 		<p>
-			&copy; {currentYear} Cooperativa Ltda. de Agua Potable y Otros Servicios
-			Públicos de Chillar. Todos los derechos reservados.
+			&copy; {currentYear} Asociación Vecinal de Saneamiento Sauce. Todos los
+			derechos reservados.
 		</p>
 		<p>
 			Desarrollado por
@@ -95,9 +96,23 @@ const currentYear = new Date().getFullYear();
 </footer>
 
 <style>
+	:root {
+		--footer-bg: #3b5c8c;
+		--footer-bg-2: #2f4b73;
+		--footer-text: rgba(255, 255, 255, 0.9);
+		--footer-muted: rgba(255, 255, 255, 0.7);
+		--brand-sun: #e3c21c;
+		--brand-gold: #c9a33c;
+		--brand-sky: #70b3e0;
+		--brand-sky-2: #47a2df;
+	}
 	.footer {
-		background-color: #06752e;
-		color: #fff;
+		background: linear-gradient(
+			180deg,
+			var(--footer-bg) 0%,
+			var(--footer-bg-2) 100%
+		);
+		color: var(--footer-text);
 		padding: 4rem 1.5rem 1rem;
 		font-family: sans-serif;
 		margin-top: 3rem;
@@ -123,6 +138,7 @@ const currentYear = new Date().getFullYear();
 	.footer-logo img {
 		width: 120px;
 		height: auto;
+		border-radius: 50%;
 	}
 
 	.footer-logo p {
@@ -146,7 +162,8 @@ const currentYear = new Date().getFullYear();
 	.footer-social h4 {
 		margin-bottom: 1rem;
 		font-size: 1.1rem;
-		color: #ffcd34;
+		color: var(--brand-sun);
+		letter-spacing: 0.2px;
 	}
 
 	.footer-links ul {
@@ -156,60 +173,57 @@ const currentYear = new Date().getFullYear();
 	}
 
 	.footer-links li {
-		margin-bottom: 0.5rem;
+		margin-bottom: 0.55rem;
 	}
 
-	.footer-links a {
-		color: #fff;
+	.footer-links a,
+	.footer-contact a {
+		color: var(--footer-text);
 		text-decoration: none;
-		transition: color 0.2s ease;
+		transition:
+			color 0.2s ease,
+			opacity 0.2s ease;
 	}
 
-	.footer-links a:hover {
-		color: #ffcd34;
+	.footer-links a:hover,
+	.footer-contact a:hover {
+		color: var(--brand-sun);
 	}
 
 	.footer-contact p {
 		margin: 0.4rem 0;
 		font-size: 0.95rem;
-	}
-
-	.footer-contact a {
-		color: #fff;
-		text-decoration: none;
-	}
-
-	.footer-contact a:hover {
-		color: #70b3e0;
+		color: var(--footer-muted);
 	}
 
 	.social-icons a {
-		display: inline-block;
-		margin-right: 0.5rem;
-		color: #fff;
-		font-size: 1.2rem;
-		transition: color 0.3s ease;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 0.6rem;
+		border-radius: 10px;
+		padding: 6px;
+		transition:
+			transform 0.2s ease,
+			background 0.2s ease;
 	}
 
 	.social-icons a:hover {
-		color: #ffcd34;
+		transform: translateY(-2px);
+		background: rgbs(255, 255, 255, 0.08);
 	}
 
 	.footer-bottom {
 		text-align: center;
 		margin-top: 2rem;
 		font-size: 0.85rem;
-		border-top: 1px solid rgba(255, 255, 255, 0.2);
+		border-top: 1px solid rgba(201, 163, 60, 0.55);
 		padding-top: 1rem;
-		color: #ccc;
-	}
-
-	.footer-bottom a {
-		text-decoration: none;
-		color: #70b3e0;
+		color: var(--brand-sky);
+		transition: color 0.2s ease;
 	}
 
 	.footer-bottom a:hover {
-		color: #47a2df;
+		color: var(--brand-sky-2);
 	}
 </style>

@@ -2,12 +2,7 @@
 	<div class="navbar-content">
 		<div class="logo">
 			<img src="/images/logo.webp" alt="logo-coop" />
-			<p>
-				Cooperativa Ltda. de Agua Potable<br />y Otros Servicios
-				Públicos<br />de Chillar
-				<!-- Cooperativa de Servicios Públicos,<br />Sociales, de Asistencia
-				Social<br />y Vivienda de San Justo Ltda. -->
-			</p>
+			<p>Asociación Vecinal de<br />Saneamiento Sauce</p>
 		</div>
 
 		<button class="hamburger" id="hamburger" aria-label="Menú">
@@ -37,12 +32,12 @@
 					<li><a href="/noticias">Noticias</a></li>
 					<li><a href="/origen">Origen</a></li>
 					<li><a href="/mision-y-vision">Misión y visión</a></li>
-					<li><a href="/nuestros-valores">Nuestros valores</a></li>
+					<!-- <li><a href="/nuestros-valores">Nuestros valores</a></li> -->
 					<li><a href="/institucional">Institucional</a></li>
 				</ul>
 			</li>
 			<li class="nav-item">
-				<a href="https://migestarcoop.com.ar/Chillar/login"
+				<a href="https://migestarcoop.com.ar/Sauce/login"
 					>Oficina Virtual</a
 				>
 			</li>
@@ -58,9 +53,23 @@
 		--navbar-expanded-height: 80px;
 		--navbar-compact-height: 56px;
 		--transition-time: 0.3s;
-
-		--nav-hover-color: #06752e;
 		--dropdown-gap: 12px;
+
+		/* identidad */
+		--brand: #3b5c8c;
+		--brand-dark: #2f4b73;
+		--accent: #e3c21c;
+		--gold: #c9a33c;
+
+		/* navbar system */
+		--nav-text: #111827;
+		--nav-muted: #4b5563;
+		--nav-bg: rgba(255, 255, 255, 0.92);
+		--nav-bg-solid: #ffffff;
+		--nav-border: rgba(59, 92, 140, 0.14);
+		--nav-shadow: 0 10px 28px rgba(59, 92, 140, 0.14);
+
+		--nav-hover-color: var(--brand-dark);
 	}
 
 	#navbar {
@@ -68,13 +77,18 @@
 		top: 0;
 		left: 0;
 		width: 100%;
-		background: white;
+		background: var(--nav-bg);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+
 		z-index: 1000;
 		transition:
 			padding-top 0.3s ease,
 			height 0.3s ease,
 			padding-bottom 0.3s ease;
-		box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+
+		border-bottom: 1px solid var(--nav-border);
+		box-shadow: 0px 2px 12px rgba(59, 92, 140, 0.1);
 	}
 
 	.navbar-content {
@@ -84,6 +98,11 @@
 		padding: 0 2rem;
 		height: var(--navbar-expanded-height);
 		transition: all var(--transition-time) ease;
+	}
+
+	#navbar.compact {
+		background: var(--nav-bg-solid);
+		box-shadow: 0px 8px 22px rgba(59, 92, 140, 0.14);
 	}
 
 	#navbar.compact .navbar-content {
@@ -143,6 +162,7 @@
 	.logo img {
 		margin: auto;
 		height: 60px;
+		border-radius: 50%;
 		transition: height var(--transition-time) ease;
 	}
 
@@ -173,7 +193,7 @@
 		font-family: inherit;
 		font-size: inherit;
 
-		color: #333;
+		color: var(--nav-text);
 		text-decoration: none;
 
 		position: relative;
@@ -211,7 +231,7 @@
 		height: 2px;
 		width: 0%;
 		margin: 0 auto;
-		background: currentColor;
+		background: linear-gradient(90deg, var(--accent), var(--gold));
 		transition: width 0.25s ease;
 	}
 
@@ -253,14 +273,14 @@
 		top: calc(100% + var(--dropdown-gap));
 		left: 0;
 
-		background: white;
-		border: 1px solid #ddd;
-		box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
-		border-radius: 12px;
+		background: #fff;
+		border: 1px solid var(--nav-border);
+		box-shadow: var(--nav-shadow);
+		border-radius: 14px;
 
 		padding: 0.5rem 0;
 		list-style: none;
-		min-width: 180px;
+		min-width: 190px;
 		z-index: 1000;
 
 		opacity: 0;
@@ -285,14 +305,15 @@
 
 	.dropdown-menu li a {
 		display: block;
-		padding: 0.5rem 1rem;
-		color: #333;
+		padding: 0.55rem 1rem;
+		color: var(--nav-text);
 		text-decoration: none;
 		white-space: nowrap;
 	}
 
 	.dropdown-menu li a:hover {
-		background-color: #f5f5f5;
+		background: color-mix(in oklab, var(--brand), white 92%);
+		color: var(--brand-dark);
 	}
 
 	.nav-item > button:hover {
@@ -319,7 +340,7 @@
 	.hamburger span {
 		display: block;
 		height: 3px;
-		background: #333;
+		background: var(--brand-dark);
 		border-radius: 2px;
 		transition: all 0.3s ease;
 	}
@@ -334,11 +355,12 @@
 			top: 100%;
 			left: 0;
 			right: 0;
-			background: white;
+			background: var(--nav-bg-solid);
+			border-bottom: 1px solid var(--nav-border);
+			box-shadow: 0 14px 26px rgba(59, 92, 140, 0.14);
 			flex-direction: column;
 			align-items: start;
 			padding: 0 2rem;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 			opacity: 0;
 			max-height: 0;
@@ -399,6 +421,20 @@
 
 		.nav-item.dropdown {
 			padding-bottom: 0;
+		}
+
+		.nav-item > button.dropdown-trigger {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			padding: 1rem 0;
+			text-align: left;
+		}
+
+		.nav-item > button.dropdown-trigger .caret {
+			margin-left: 1rem;
+			flex: 0 0 auto;
 		}
 	}
 	/* 

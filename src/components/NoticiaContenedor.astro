@@ -21,34 +21,43 @@ const { novedades = [], noticias = [] } = Astro.props as {
 <div
 	class="noticias-y-blog"
 	class:list={{ "is-empty": novedades.length === 0 }}
+	data-has-carousel={false}
 >
-	<NovedadesCarousel novedades={novedades} />
+	<!-- <NovedadesCarousel novedades={novedades} /> -->
 	<NoticiasSidebar noticias={noticias} />
 </div>
 
 <style>
 	.noticias-y-blog {
-		display: flex;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: 1fr;
 		gap: 2rem;
-		max-width: 1600px;
+		width: 100%;
+		max-width: 1200px;
 		margin: 0 auto;
-		align-items: flex-start;
+		padding: 0 1rem;
+		align-items: start;
 	}
 
-	@media (max-width: 1070px) {
+	.noticias-y-blog[data-has-carousel="true"] {
+		grid-template-columns: 1.8fr 1fr;
+		max-width: 1400px;
+	}
+
+	@media (min-width: 1024px) {
 		.noticias-y-blog {
-			flex-direction: column;
+			padding: 0 1.5rem;
 		}
-	}
-	.noticias-y-blog.is-empty {
-		align-items: center;
 	}
 
-	/* en mobile mantenemos el comportamiento normal (stack) */
-	@media (max-width: 1070px) {
-		.noticias-y-blog.is-empty {
-			align-items: stretch;
+	@media (max-width: 720px) {
+		.noticias-y-blog {
+			gap: 1.25rem;
+			padding: 0 0.75rem;
 		}
+	}
+
+	.noticias-y-blog :global(.blog-sidebar) {
+		max-width: none;
 	}
 </style>

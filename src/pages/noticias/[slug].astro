@@ -74,7 +74,11 @@ try {
 const html = post ? renderBlocks(post.blocksJson) : "";
 ---
 
-<Layout title={post?.titulo ? `${post.titulo} · Noticias` : "Noticia"}>
+<Layout
+	title={post?.titulo
+		? `${post.titulo} - Asociación Vecinal de Saneamiento Sauce`
+		: "Noticia - Asociación Vecinal de Saneamiento Sauce"}
+>
 	<div id="main-content" class:list={{ "is-notfound": notFound }}>
 		<main class="wrap">
 			{
@@ -133,19 +137,18 @@ const html = post ? renderBlocks(post.blocksJson) : "";
 
 	<style>
 		:root {
-			/* branding (igual que Institucional) */
-			--brand: #06752e;
-			--accent: #ffcd34;
-
-			--text: #111827;
+			--brand: #3b5c8c;
+			--brand-dark: #2f4b73;
+			--accent: #e3c21c;
+			--gold: #c9a33c;
+			--text: #1a1a1a;
 			--muted: #4b5563;
-			--bg: #f6f7fb;
+			--bg: #f3f6fb;
 			--card: #ffffff;
-			--border: rgba(17, 24, 39, 0.08);
-
+			--border: rgba(59, 92, 140, 0.12);
+			--border-soft: rgba(59, 92, 140, 0.08);
 			--brand-ghost: color-mix(in oklab, var(--brand), white 92%);
-			--accent-ghost: color-mix(in oklab, var(--accent), white 82%);
-
+			--accent-ghost: color-mix(in oklab, var(--accent), white 88%);
 			--article-max: 1000px;
 		}
 
@@ -280,13 +283,13 @@ const html = post ? renderBlocks(post.blocksJson) : "";
 		}
 
 		.content :where(h2, h3, h4) {
-			color: color-mix(in oklab, var(--brand), black 10%);
+			color: var(--brand-dark);
 			margin: 1.25em 0 0.5em;
 			line-height: 1.25;
 		}
 
 		.content :where(h2) {
-			border-left: 5px solid var(--accent);
+			border-left: 5px solid var(--gold);
 			padding-left: 0.95rem;
 		}
 
